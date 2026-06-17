@@ -5,6 +5,7 @@ import { ArrowUpRight, Play, TrendingUp, MapPin, Activity } from "lucide-react";
 import Image from "next/image";
 import { DashboardMockup } from "@/components/ui/DashboardMockup";
 import { Tilt, Magnetic, ScrollFloat, Parallax } from "@/components/ui/Motion";
+import { useModal } from "@/components/ui/ModalContext";
 
 const retailers = [
   { name: "Woolworths", logo: "/woolworths-logo.svg" },
@@ -13,6 +14,7 @@ const retailers = [
 ];
 
 export function Hero() {
+  const { openModal } = useModal();
   return (
     <section id="top" className="hero-grain relative overflow-hidden pt-36 pb-24 md:pt-44 md:pb-32">
       {/* Background layers */}
@@ -88,7 +90,7 @@ export function Hero() {
             className="mt-9 flex flex-wrap items-center gap-3"
           >
             <Magnetic>
-              <a href="#pricing" className="btn-primary">
+              <a href="tel:+61479256105" className="btn-primary">
                 Let&apos;s Talk
                 <ArrowUpRight className="h-4 w-4" />
               </a>

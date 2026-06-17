@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useModal } from "@/components/ui/ModalContext";
 import {
   Workflow,
   Store,
@@ -47,6 +48,7 @@ const services = [
 ];
 
 export function Services() {
+  const { openModal } = useModal();
   return (
     <section id="services" className="relative overflow-hidden py-24 md:py-32">
       {/* Ambient background */}
@@ -97,10 +99,10 @@ export function Services() {
 
                   {/* Stat pill + CTA row */}
                   <div className="mt-8 flex flex-wrap items-center gap-4">
-                    <a href="#contact" className="btn-primary">
+                    <button onClick={openModal} className="btn-primary">
                       Get Started
                       <ArrowUpRight className="h-4 w-4" />
-                    </a>
+                    </button>
                     <div className="flex items-center gap-2 rounded-full border border-[rgb(var(--accent-rgb)/22%)] bg-[rgb(var(--accent-rgb)/7%)] px-4 py-2">
                       <Zap className="h-3.5 w-3.5 text-[var(--color-lime)]" />
                       <span className="font-mono text-sm font-semibold text-[var(--color-lime)]">

@@ -3,6 +3,7 @@
 import { ArrowUpRight, PhoneCall, ShieldCheck, Clock, Users } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 import { Magnetic, Parallax } from "@/components/ui/Motion";
+import { useModal } from "@/components/ui/ModalContext";
 
 const trust = [
   { icon: <ShieldCheck className="h-4 w-4" />, text: "No lock-in contracts" },
@@ -11,6 +12,7 @@ const trust = [
 ];
 
 export function FinalCta() {
+  const { openModal } = useModal();
   return (
     <section id="contact" className="relative overflow-hidden py-28 md:py-36">
       {/* Layered parallax backgrounds */}

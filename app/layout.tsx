@@ -3,6 +3,8 @@ import { Bricolage_Grotesque, Plus_Jakarta_Sans, JetBrains_Mono } from "next/fon
 import "./globals.css";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { Preloader } from "@/components/ui/Preloader";
+import { ModalProvider } from "@/components/ui/ModalContext";
+import { OnboardingModal } from "@/components/ui/OnboardingModal";
 
 const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
@@ -51,8 +53,11 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <Preloader />
-        <SmoothScroll>{children}</SmoothScroll>
+        <ModalProvider>
+          <Preloader />
+          <OnboardingModal />
+          <SmoothScroll>{children}</SmoothScroll>
+        </ModalProvider>
       </body>
     </html>
   );

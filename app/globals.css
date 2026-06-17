@@ -124,8 +124,178 @@ html.light .bg-surface {
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
 }
 
+/* ── Onboarding modal theming ────────────────────────────── */
+.ob-modal {
+  background: linear-gradient(160deg, #0d1a03 0%, #0a1502 45%, #070906 100%);
+}
+html.light .ob-modal {
+  background: linear-gradient(160deg, #f2f8e4 0%, #eaf3d5 45%, #f8faf2 100%);
+}
+.ob-modal-header {
+  background: #050a01;
+  border-bottom: 1px solid rgba(199,249,77,0.14);
+}
+html.light .ob-modal-header {
+  background: #0e1a02;
+  border-bottom: 1px solid rgba(92,148,0,0.25);
+}
+.ob-modal-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(199,249,77,0.13);
+  border-radius: 1rem;
+}
+html.light .ob-modal-card {
+  background: #ffffff;
+  border: 1px solid #c4d8a0;
+  box-shadow: 0 2px 14px rgba(0,0,0,0.07);
+}
+.ob-welcome { color: rgba(210,235,175,0.85); }
+html.light .ob-welcome { color: #2d3621; }
+
+.ob-section-label { color: rgba(199,249,77,0.55); letter-spacing: 0.12em; }
+html.light .ob-section-label { color: #4a7800; }
+
+.ob-retailer-label { color: rgba(225,245,195,0.88); }
+html.light .ob-retailer-label { color: #1a2e05; }
+
+.ob-terms-wrap {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(199,249,77,0.1);
+  border-radius: 1rem;
+  color: rgba(195,220,160,0.72);
+}
+html.light .ob-terms-wrap {
+  background: #f6faea;
+  border: 1px solid #bdd49a;
+  color: #526040;
+}
+.ob-terms-heading { color: #c7f94d; }
+html.light .ob-terms-heading { color: #3e6600; }
+
+.ob-terms-bold { color: rgba(220,245,185,0.9); }
+html.light .ob-terms-bold { color: #1a2e05; }
+
+.ob-add-btn {
+  border: 1.5px dashed rgba(199,249,77,0.35);
+  background: rgba(199,249,77,0.05);
+  color: #c7f94d;
+  border-radius: 0.75rem;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.18s;
+  cursor: pointer;
+}
+.ob-add-btn:hover {
+  border-color: rgba(199,249,77,0.65);
+  background: rgba(199,249,77,0.1);
+}
+html.light .ob-add-btn {
+  border-color: rgba(92,148,0,0.4);
+  background: rgba(92,148,0,0.06);
+  color: #3e6600;
+}
+html.light .ob-add-btn:hover {
+  border-color: rgba(92,148,0,0.7);
+  background: rgba(92,148,0,0.12);
+}
+
+/* ── Onboarding form inputs ──────────────────────────────── */
+.ob-input,
+.form-input {
+  width: 100%;
+  padding: 0.65rem 1rem;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 0.625rem;
+  font-size: 0.9rem;
+  color: #f0f4e8;
+  outline: none;
+  transition: border-color 0.18s, box-shadow 0.18s, background 0.18s;
+}
+.ob-input::placeholder,
+.form-input::placeholder { color: rgba(255,255,255,0.35); }
+.ob-input:focus,
+.form-input:focus {
+  background: rgba(255,255,255,0.09);
+  border-color: rgb(var(--accent-rgb) / 0.7);
+  box-shadow: 0 0 0 3px rgb(var(--accent-rgb) / 0.15);
+}
+select.ob-input,
+select.form-input { cursor: pointer; }
+.ob-select-icon { color: rgba(255,255,255,0.4); }
+html.light .ob-select-icon { color: rgba(20,40,5,0.5); }
+/* Light mode overrides */
+html.light .ob-input,
+html.light .form-input {
+  background: #ffffff;
+  border-color: #c8d4b0;
+  color: #0e1308;
+}
+html.light .ob-input::placeholder,
+html.light .form-input::placeholder { color: #8a9e70; }
+html.light .ob-input:focus,
+html.light .form-input:focus {
+  background: #ffffff;
+  border-color: rgb(92 148 0 / 0.7);
+  box-shadow: 0 0 0 3px rgb(92 148 0 / 0.12);
+}
+
+.ob-checkbox,
+.form-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  border: 1.5px solid var(--color-border);
+  border-radius: 0.3rem;
+  background: var(--color-surface);
+  cursor: pointer;
+  transition: all 0.15s;
+  position: relative;
+}
+.ob-checkbox:checked,
+.form-checkbox:checked {
+  background: rgb(var(--accent-rgb));
+  border-color: rgb(var(--accent-rgb));
+}
+.ob-checkbox:checked::after,
+.form-checkbox:checked::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 1px;
+  width: 4px;
+  height: 8px;
+  border: 2px solid #070906;
+  border-top: none;
+  border-left: none;
+  transform: rotate(45deg);
+}
+
 * {
   border-color: var(--color-border);
+}
+
+/* ── Custom scrollbar for modal ─────────────────────────────── */
+[data-lenis-prevent]::-webkit-scrollbar { width: 5px; }
+[data-lenis-prevent]::-webkit-scrollbar-track { background: transparent; }
+[data-lenis-prevent]::-webkit-scrollbar-thumb {
+  background: rgba(199,249,77,0.25);
+  border-radius: 99px;
+}
+[data-lenis-prevent]::-webkit-scrollbar-thumb:hover {
+  background: rgba(199,249,77,0.5);
+}
+html.light [data-lenis-prevent]::-webkit-scrollbar-thumb {
+  background: rgba(80,130,0,0.25);
+}
+html.light [data-lenis-prevent]::-webkit-scrollbar-thumb:hover {
+  background: rgba(80,130,0,0.45);
 }
 
 html {

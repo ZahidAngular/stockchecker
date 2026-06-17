@@ -7,6 +7,7 @@ import { Logo } from "@/components/ui/Logo";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { Magnetic } from "@/components/ui/Motion";
 import { cn } from "@/lib/utils";
+import { useModal } from "@/components/ui/ModalContext";
 
 const links = [
   { label: "Platform", href: "#visibility" },
@@ -18,6 +19,7 @@ const links = [
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const { openModal } = useModal();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -60,7 +62,7 @@ export function Navbar() {
         <div className="hidden items-center gap-3 md:flex">
           <ThemeToggle />
           <Magnetic strength={0.25}>
-            <a href="#contact" className="btn-primary text-sm">
+            <a href="tel:+61479256105" className="btn-primary text-sm">
               Let&apos;s Talk
               <ArrowUpRight className="h-4 w-4" />
             </a>
@@ -96,7 +98,7 @@ export function Navbar() {
                 {l.label}
               </a>
             ))}
-            <a href="#contact" onClick={() => setOpen(false)} className="btn-primary mt-2 justify-center">
+            <a href="tel:+61479256105" onClick={() => setOpen(false)} className="btn-primary mt-2 justify-center">
               Let&apos;s Talk
             </a>
           </div>

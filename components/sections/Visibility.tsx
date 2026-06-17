@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Check, ArrowUpRight, Radar, TrendingDown } from "lucide-react";
 import { Reveal, RevealStagger, RevealItem } from "@/components/ui/Reveal";
 import { Tilt, Parallax, FadeUp } from "@/components/ui/Motion";
+import { useModal } from "@/components/ui/ModalContext";
 
 const points = [
   "Detect out-of-stocks before they impact sales",
@@ -15,6 +16,7 @@ const points = [
 ];
 
 export function Visibility() {
+  const { openModal } = useModal();
   return (
     <section id="visibility" className="relative overflow-hidden py-24 md:py-32">
       {/* Ambient glows */}
@@ -127,10 +129,10 @@ export function Visibility() {
           </RevealStagger>
 
           <Reveal delay={0.15}>
-            <a href="#pricing" className="btn-primary mt-9">
+            <button onClick={openModal} className="btn-primary mt-9">
               Get Started
               <ArrowUpRight className="h-4 w-4" />
-            </a>
+            </button>
           </Reveal>
         </div>
       </div>

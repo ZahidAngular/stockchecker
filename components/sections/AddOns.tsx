@@ -5,6 +5,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { RevealStagger, RevealItem } from "@/components/ui/Reveal";
 import { Tilt } from "@/components/ui/Motion";
 import { cn } from "@/lib/utils";
+import { useModal } from "@/components/ui/ModalContext";
 
 const addons = [
   {
@@ -50,6 +51,7 @@ const addons = [
 ];
 
 export function AddOns() {
+  const { openModal } = useModal();
   return (
     <section id="addons" className="relative overflow-hidden py-24 md:py-32">
       {/* Ambient glow */}
@@ -133,6 +135,7 @@ export function AddOns() {
                 {/* CTA */}
                 <button
                   disabled={a.soon}
+                  onClick={a.soon ? undefined : openModal}
                   className={cn(
                     "mt-4 inline-flex w-full items-center justify-center gap-1.5 rounded-full px-4 py-2.5 text-sm font-semibold transition-all duration-300",
                     a.soon

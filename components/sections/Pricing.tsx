@@ -1,6 +1,7 @@
 "use client";
 
 import { Check, ArrowUpRight, Sparkles } from "lucide-react";
+import { useModal } from "@/components/ui/ModalContext";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { RevealStagger, RevealItem } from "@/components/ui/Reveal";
 import { Tilt } from "@/components/ui/Motion";
@@ -56,6 +57,7 @@ const plans = [
 ];
 
 export function Pricing() {
+  const { openModal } = useModal();
   return (
     <section id="pricing" className="relative overflow-hidden py-24 md:py-32">
       <div className="pointer-events-none absolute left-1/2 top-0 h-72 w-[40rem] -translate-x-1/2 rounded-full bg-[var(--color-leaf)]/12 blur-[140px]" />
@@ -158,18 +160,18 @@ export function Pricing() {
                 </ul>
 
                 {plan.featured ? (
-                  <a
-                    href="#contact"
+                  <button
+                    onClick={openModal}
                     className="mt-7 inline-flex items-center justify-center gap-2 rounded-full bg-[#0c1203] px-5 py-3 font-semibold text-[var(--color-lime)] transition-transform hover:-translate-y-0.5"
                   >
                     {plan.cta}
                     <ArrowUpRight className="h-4 w-4" />
-                  </a>
+                  </button>
                 ) : (
-                  <a href="#contact" className="btn-ghost mt-7 justify-center">
+                  <button onClick={openModal} className="btn-ghost mt-7 justify-center">
                     {plan.cta}
                     <ArrowUpRight className="h-4 w-4" />
-                  </a>
+                  </button>
                 )}
               </Tilt>
             </RevealItem>
